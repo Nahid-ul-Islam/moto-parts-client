@@ -1,14 +1,20 @@
+import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
 import logo from '../../images/icon/super-bike.ico';
 import './Header.css';
 
 const Header = () => {
-    let user = 1;
-    const [isOpen, setIsOpen] = useState(false);
-    const handleSignOut = () => {
+    const [user] = useAuthState(auth);
 
+    const handleSignOut = () => {
+        signOut(auth);
     }
+
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div>
             <nav className="bg-zinc-600 pb-1 sticky top-0 shadow-2xl">

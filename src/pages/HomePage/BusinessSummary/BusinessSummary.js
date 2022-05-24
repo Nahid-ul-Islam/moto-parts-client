@@ -16,7 +16,6 @@ const BusinessSummary = () => {
                     <div className=' text-center flex flex-col items-center justify-center'>
                         <div className='mb-4'>
                             <FaRegFlag className='text-orange-600 -rotate-[10deg] w-10 h-10'></FaRegFlag>
-                            {/* <FaRegFlag className='text-orange-600 rotate-[10deg]'></FaRegFlag> */}
                         </div>
                         <div className='mb-2 text-4xl font-medium'>
                             <CountUp start={0} end={69} duration={1} decimals={0} delay={0.3}>
