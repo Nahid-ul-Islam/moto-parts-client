@@ -5,9 +5,7 @@ const SingleItem = () => {
     const { id } = useParams();
     return (
         <div>
-            {
-                
-            }
+            <h2>details about {id}</h2>
         </div>
     );
 };
