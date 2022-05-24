@@ -6,9 +6,16 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../../../shared/Loading/Loading';
 import Footer from '../../../shared/Footer/Footer';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 
 const SingleItem = () => {
+
+    const [user] = useAuthState(auth);
+    console.log(user);
+
+
     const { id } = useParams();
     const [item, setItem] = useState({});
     const [canBuy, setCanBuy] = useState(true);
@@ -93,8 +100,8 @@ const SingleItem = () => {
                             <div className='lg:mt-48'>
                                 <p className='text-2xl font-medium text-center mb-4'>Place Order</p>
                                 <form className='flex flex-col space-y-4 items-center justify-center'>
-                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" placeholder='Name' />
-                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="email" placeholder='Email' />
+                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" placeholder='Name' value={user?.displayName} readOnly disabled />
+                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="email" placeholder='Email' value={user?.email} readOnly disabled />
                                     <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" placeholder='Address' />
                                     <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" placeholder='Phone Number' />
                                     {

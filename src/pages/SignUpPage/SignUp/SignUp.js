@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile  } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../../shared/Loading/Loading';
 
@@ -14,16 +14,20 @@ const SignUp = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+
+    const [updateProfile, updating] = useUpdateProfile(auth);
     
 
-    const handleSubmit = event => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
+        const name = event.target.username.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        createUserWithEmailAndPassword(email, password);
-        console.log(email, password);
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+        // console.log(email, password, name);
     }
-    if (loading) {
+    if (loading || updating) {
         return <Loading></Loading>
     //     return <div className='my-10'>
     //     <div className="flex justify-center items-center">
@@ -52,7 +56,7 @@ const SignUp = () => {
                         <label className="block text-gray-700 text-sm font-bold mb-2">
                             Username
                         </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="Username" />
                     </div>
                     <div className="mb-4">
                         <label className="block text-gray-700 text-sm font-bold mb-2">
