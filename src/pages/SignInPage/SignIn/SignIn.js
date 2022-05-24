@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase.init';
 import SocialLogin from '../SocialLogIn/SocialLogIn';
+import Loading from '../../../shared/Loading/Loading';
 
 const SignIn = () => {
     let errorElement;
@@ -27,12 +28,7 @@ const SignIn = () => {
         navigate(from, { replace: true });
     }
     if (loading || sending) {
-        return <div className='my-10'>
-            <div className="flex justify-center items-center">
-                < div className="animate-spin rounded-full h-16 w-16 lg:h-32 lg:w-32 border-b-2 border-black"></div>
-            </div>
-            <h4 className='text-center text-xl fond-semibold text-black mt-5'>Loading...</h4>
-        </div>
+        return <Loading></Loading>
     }
     if (error) {
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../../shared/Loading/Loading';
 
 const SignUp = () => {
 
@@ -23,12 +24,13 @@ const SignUp = () => {
         console.log(email, password);
     }
     if (loading) {
-        return <div className='my-10'>
-        <div className="flex justify-center items-center">
-            < div className="animate-spin rounded-full h-16 w-16 lg:h-32 lg:w-32 border-b-2 border-black"></div>
-        </div>
-        <h4 className='text-center text-xl fond-semibold text-black mt-5'>Loading...</h4>
-    </div>
+        return <Loading></Loading>
+    //     return <div className='my-10'>
+    //     <div className="flex justify-center items-center">
+    //         < div className="animate-spin rounded-full h-16 w-16 lg:h-32 lg:w-32 border-b-2 border-black"></div>
+    //     </div>
+    //     <h4 className='text-center text-xl fond-semibold text-black mt-5'>Loading...</h4>
+    // </div>
     }
 
     if (error) {
