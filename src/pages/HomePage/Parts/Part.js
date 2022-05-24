@@ -16,7 +16,7 @@ const Part = ({part}) => {
                 <p className='mt-3 text-justify'>{description}</p>
                 <div className='text-center'>
                     <Link to={`/parts/${_id}`}>
-                        <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-5">Update</button>
+                        <button className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mt-5">Purchase</button>
                     </Link>
                 </div>
             </div>
