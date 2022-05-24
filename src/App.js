@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import Home from './pages/HomePage/Home/Home';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
@@ -17,6 +18,9 @@ function App() {
         <Route path='/parts/:id' element={<SingleItem></SingleItem>}></Route>
         <Route path='/my-portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
       </Routes>
+
+
+      <ToastContainer />
     </div>
   );
 }

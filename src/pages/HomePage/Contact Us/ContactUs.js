@@ -4,7 +4,7 @@ import hayabusa from '../../../images/Contact_Us_img/hayabusa.PNG';
 
 const ContactUs = () => {
     return (
-        <div className='mb-24 bg-gray-200 pb-10'>
+        <div className='bg-gray-200 pb-20'>
             <h2 className='bg-orange-600 text-white text-center text-2xl md:text-4xl font-bold py-9 mt-28'></h2>
 
             <div className='text-center mt-10 md:my-20'>
