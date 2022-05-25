@@ -1,9 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
+import AddProduct from './pages/DashboardPage/AddProduct/AddProduct';
 import AddReview from './pages/DashboardPage/AddReview/AddReview';
 import Dashboard from './pages/DashboardPage/Dashboard/Dashboard';
 import MyOrders from './pages/DashboardPage/Dashboard/MyOrders/MyOrders';
+import MakeAdmin from './pages/DashboardPage/MakeAdmin/MakeAdmin';
+import ManageOrder from './pages/DashboardPage/ManageOrder/ManageOrder';
+import ManageProduct from './pages/DashboardPage/ManageProduct/ManageProduct';
 import MyProfile from './pages/DashboardPage/MyProfile/MyProfile';
 import Home from './pages/HomePage/Home/Home';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
@@ -38,6 +42,11 @@ function App() {
         <Route path='my-profile' element={<MyProfile/>}></Route>
         <Route path='add-review' element={<AddReview/>}></Route>
         <Route path='my-orders' element={<MyOrders/>}></Route>
+
+        <Route path='manage-order' element={<ManageOrder/>}></Route>
+        <Route path='manage-product' element={<ManageProduct/>}></Route>
+        <Route path='add-product' element={<AddProduct/>}></Route>
+        <Route path='make-admin' element={<MakeAdmin/>}></Route>
 
         </Route>
         {/* nested routes end */}
