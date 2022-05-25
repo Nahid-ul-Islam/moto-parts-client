@@ -28,9 +28,12 @@ const SingleItem = () => {
                 setItem(data);
                 setSpinner(false);
             })
-    }, [id, item]);
+    }, [id]);
+    //item 
 
     const { name, image, description, price, minOrder, availableQuantity } = item;
+    const productName = name;
+
 
     const min = parseInt(minOrder);
     const max = parseInt(availableQuantity);
@@ -75,7 +78,7 @@ const SingleItem = () => {
     
     const handleOrder = event => {
         event.preventDefault();
-        const name = event.target.name.value;
+        const name = productName;
         const email = event.target.email.value;
         const address = event.target.address.value;
         const phone = event.target.phone.value;

@@ -13,8 +13,8 @@ const Dashboard = () => {
                 <div className=' bg-gray-200 p-2 w-[40px] inline-block rounded-md ml-1 mt-1 lg:hidden'>
                     <label for="dashboard-sidebar" className='drawer-button font-bold text-black text-2xl bg-gray-300 rounded-md'><AiOutlineArrowRight /></label>
                 </div>
-                <div className='inline-block ml-7 md:ml-48 lg:ml-0 lg:block lg:mt-5'>
-                <h2 className='text-2xl lg:text-4xl font-bold text-center '>Welcome to the Dashboard</h2>
+                <div className='inline-block ml-7 mb-5 md:ml-48 lg:ml-0 lg:block lg:mt-5'>
+                <h2 className='text-2xl lg:text-4xl font-bold text-center text-orange-600 '>Welcome to the Dashboard</h2>
                 </div>
                 <Outlet></Outlet>
             </div>

@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import './App.css';
 import AddReview from './pages/DashboardPage/AddReview/AddReview';
 import Dashboard from './pages/DashboardPage/Dashboard/Dashboard';
-import MyOrder from './pages/DashboardPage/Dashboard/MyOrder/MyOrder';
+import MyOrders from './pages/DashboardPage/Dashboard/MyOrders/MyOrders';
 import MyProfile from './pages/DashboardPage/MyProfile/MyProfile';
 import Home from './pages/HomePage/Home/Home';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
@@ -34,10 +34,10 @@ function App() {
         {/* nested routes start */}
         <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
 
-        <Route index element={<MyOrder/>}></Route>
+        <Route index element={<MyOrders/>}></Route>
         <Route path='my-profile' element={<MyProfile/>}></Route>
         <Route path='add-review' element={<AddReview/>}></Route>
-        <Route path='my-orders' element={<MyOrder/>}></Route>
+        <Route path='my-orders' element={<MyOrders/>}></Route>
 
         </Route>
         {/* nested routes end */}

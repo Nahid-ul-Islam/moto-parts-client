@@ -3,7 +3,7 @@ import Loading from '../../../shared/Loading/Loading';
 import ReviewContainer from './ReviewContainer';
 
 const Review = () => {
-    const [reviews, setReviews] = useState();
+    const [reviews, setReviews] = useState([]);
     const [spinner, setSpinner] = useState(true);
 
     //loading reviews
