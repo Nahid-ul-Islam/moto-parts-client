@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile  } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../../shared/Loading/Loading';
+import useToken from '../../../hooks/useToken';
 
 const SignUp = () => {
 
@@ -27,6 +28,10 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
         // console.log(email, password, name);
     }
+
+    const [token] = useToken(user);
+    console.log(user?.user?.displayName);
+
     if (loading || updating) {
         return <Loading></Loading>
     }

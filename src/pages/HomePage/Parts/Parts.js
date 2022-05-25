@@ -9,7 +9,7 @@ const Parts = () => {
     if (isLoading) {
         return <Loading></Loading>;
     }
-    // refetch();
+    
 
     return (
         <div>

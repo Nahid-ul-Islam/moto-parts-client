@@ -23,7 +23,7 @@ const Header = () => {
                     <div className="flex items-center justify-between h-16">
 
                         <div className="flex items-center">
-                             {/* for the sidebar in dashboard page start */}
+                            {/* for the sidebar in dashboard page start */}
                             {/* <div className='mr-12 bg-gray-200 p-2 rounded-md ml-2 lg:hidden'>
                                 <label for="dashboard-sidebar" className='drawer-button font-bold text-black text-2xl bg-gray-300 rounded-md '><AiOutlineArrowRight/></label>
                             </div> */}
@@ -89,9 +89,12 @@ const Header = () => {
                                 <div>
                                     {
                                         user ?
-                                            <button onClick={handleSignOut} className='text-decoration-none text-white xl:text-xl hover:text-orange-600 px-3 py-2 rounded-md text-medium font-medium'>
-                                                Sign Out
-                                            </button>
+                                            <div className='flex'>
+                                                <button onClick={handleSignOut} className='text-decoration-none text-white xl:text-xl hover:text-orange-600 px-3 py-2 rounded-md text-medium font-medium'>
+                                                    Sign Out
+                                                </button>
+                                                <h2 className='text-decoration-none text-blue-700 xl:text-xl bg-gray-300 hover:text-orange-600 px-3 py-2 ml-2 rounded-md text-medium font-medium'>{user?.displayName}</h2>
+                                            </div>
                                             :
                                             <NavLink
                                                 to="/signin"
@@ -202,9 +205,12 @@ const Header = () => {
                             <div>
                                 {
                                     user ?
-                                        <button onClick={handleSignOut} className='text-decoration-none text-white hover:text-orange-600  text-xl block px-3 py-2 rounded-md font-medium'>
-                                            Sign Out
-                                        </button>
+                                        <div>
+                                            <button onClick={handleSignOut} className='text-decoration-none text-white hover:text-orange-600  text-xl block px-3 py-2 rounded-md font-medium'>
+                                                Sign Out
+                                            </button>
+                                            <h2 className='text-decoration-none w-32  text-blue-700 xl:text-xl bg-gray-300 hover:text-orange-600 px-3 py-2 ml-2 rounded-md text-medium font-medium'>{user.displayName}</h2>
+                                        </div>
                                         :
                                         <NavLink
                                             to="/signin"
