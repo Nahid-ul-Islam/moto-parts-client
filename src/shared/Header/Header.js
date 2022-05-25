@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../images/icon/super-bike.ico';
 import './Header.css';
+// import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const Header = () => {
     const [user] = useAuthState(auth);
@@ -21,17 +22,24 @@ const Header = () => {
                 <div className="xl:mx-36 lg:mx-10 mx-auto pr-4 lg:px-0">
                     <div className="flex items-center justify-between h-16">
 
-                        <div className="flex-shrink-0">
-                            <NavLink to="/home" className="text-decoration-none">
-                                <div className="flex items-center ml-2 lg:ml-0">
-                                    <img
-                                        className="h-10 w-10 lg:h-10 lg:w-10 rounded-full"
-                                        src={logo}
-                                        alt="Workflow"
-                                    />
-                                    <h2 className="text-white text-xl font-bold pl-5"><em><span className='text-orange-600'> MOTO </span><span className='text-white'>PARTS</span></em></h2>
-                                </div>
-                            </NavLink>
+                        <div className="flex items-center">
+                             {/* for the sidebar in dashboard page start */}
+                            {/* <div className='mr-12 bg-gray-200 p-2 rounded-md ml-2 lg:hidden'>
+                                <label for="dashboard-sidebar" className='drawer-button font-bold text-black text-2xl bg-gray-300 rounded-md '><AiOutlineArrowRight/></label>
+                            </div> */}
+                            {/* for the sidebar in dashboard page end */}
+                            <div className="flex-shrink-0 ">
+                                <NavLink to="/home" className="text-decoration-none">
+                                    <div className="flex items-center ml-2 lg:ml-0">
+                                        <img
+                                            className="h-10 w-10 lg:h-10 lg:w-10 rounded-full"
+                                            src={logo}
+                                            alt="Workflow"
+                                        />
+                                        <h2 className="text-white text-xl font-bold pl-5"><em><span className='text-orange-600'> MOTO </span><span className='text-white'>PARTS</span></em></h2>
+                                    </div>
+                                </NavLink>
+                            </div>
 
                         </div>
                         <div className="hidden md:block ">

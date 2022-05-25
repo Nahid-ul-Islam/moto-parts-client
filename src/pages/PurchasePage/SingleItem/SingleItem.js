@@ -13,7 +13,7 @@ import auth from '../../../firebase.init';
 const SingleItem = () => {
 
     const [user] = useAuthState(auth);
-    console.log(user);
+    // console.log(user);
 
 
     const { id } = useParams();
@@ -22,13 +22,13 @@ const SingleItem = () => {
     const [spinner, setSpinner] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/parts/${id}`)
+        fetch(`https://cryptic-basin-15490.herokuapp.com/parts/${id}`)
             .then(res => res.json())
             .then(data => {
                 setItem(data);
                 setSpinner(false);
             })
-    }, [id]);
+    }, [id, item]);
 
     const { name, image, description, price, minOrder, availableQuantity } = item;
 
@@ -36,6 +36,7 @@ const SingleItem = () => {
     const max = parseInt(availableQuantity);
 
     const [num, setNum] = useState(0);
+
     useEffect(() => {
         setNum(min);
     }, [min]);
@@ -71,6 +72,50 @@ const SingleItem = () => {
         setNum(event.target.value);
     }
 
+    
+    const handleOrder = event => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const address = event.target.address.value;
+        const phone = event.target.phone.value;
+        const totalPrice = num * price;
+        //console.log(name, email, address, phone, totalPrice);
+
+        //sending order details to database
+        const newOrder = {name, email, address, phone, totalPrice};
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newOrder)
+        })
+        .then(res => res.json())
+        .then(data => {
+            toast.success('Orderd successfully');
+            event.target.reset();
+        })
+
+        //update the available quantity of the parts in the databse
+        const newQuantity = availableQuantity - num;
+        const updatedQuantity = {newQuantity};
+        //console.log(updatedQuantity);
+        fetch(`http://localhost:5000/parts/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedQuantity),
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('parts available Quantity has updated after the new order');
+        })
+
+
+    }
+
 
 
 
@@ -99,17 +144,17 @@ const SingleItem = () => {
                             </div>
                             <div className='lg:mt-48'>
                                 <p className='text-2xl font-medium text-center mb-4'>Place Order</p>
-                                <form className='flex flex-col space-y-4 items-center justify-center'>
-                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" placeholder='Name' value={user?.displayName} readOnly disabled />
-                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="email" placeholder='Email' value={user?.email} readOnly disabled />
-                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" placeholder='Address' />
-                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" placeholder='Phone Number' />
+                                <form onSubmit={handleOrder} className='flex flex-col space-y-4 items-center justify-center'>
+                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" name='name' placeholder='Name' value={user?.displayName} readOnly disabled />
+                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="email" name='email' placeholder='Email' value={user?.email} readOnly disabled />
+                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" name='address' placeholder='Address' />
+                                    <input className='w-80 border-2 rounded p-2 border-orange-600' type="text" name='phone' placeholder='Phone Number' />
                                     {
                                         canBuy === false ? <button disabled className='w-36 bg-orange-200 text-white p-3 font-medium tracking-wider rounded '>Order</button>
                                             :
-                                            <button className='w-36 bg-orange-600 text-white p-3 font-medium tracking-wider rounded hover:bg-orange-700'>Order</button>
+                                            // <button className='w-36 bg-orange-600 text-white p-3 font-medium tracking-wider rounded hover:bg-orange-700'>Order</button>
+                                            <input type="submit" value='Order' className='w-36 bg-orange-600 text-white p-3 font-medium tracking-wider rounded hover:bg-orange-700'/>
                                     }
-
                                 </form>
                             </div>
                         </div>

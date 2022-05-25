@@ -29,12 +29,6 @@ const SignUp = () => {
     }
     if (loading || updating) {
         return <Loading></Loading>
-    //     return <div className='my-10'>
-    //     <div className="flex justify-center items-center">
-    //         < div className="animate-spin rounded-full h-16 w-16 lg:h-32 lg:w-32 border-b-2 border-black"></div>
-    //     </div>
-    //     <h4 className='text-center text-xl fond-semibold text-black mt-5'>Loading...</h4>
-    // </div>
     }
 
     if (error) {
@@ -71,7 +65,7 @@ const SignUp = () => {
                         <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="******************" />
                     </div>
                     <div className="flex items-center justify-between">
-                        <button className="bg-orange-600 w-full hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                        <button className="bg-orange-800 w-full hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
                             <input className='w-full' type="submit" value="SignUp" />
                         </button>
                     </div>
