@@ -15,7 +15,7 @@ const useToken = (user) => {
             })
             .then(res => res.json())
             .then(data => {
-                alert('user added to database');
+                //alert('user added to database');
             })
         }
     }, [user])

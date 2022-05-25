@@ -30,7 +30,7 @@ const SignUp = () => {
     }
 
     const [token] = useToken(user);
-    console.log(user?.user?.displayName);
+    //console.log(user?.user?.displayName);
 
     if (loading || updating) {
         return <Loading></Loading>

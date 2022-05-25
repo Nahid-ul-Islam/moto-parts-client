@@ -1,53 +1,89 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 
 const MyProfile = () => {
 
     const [user] = useAuthState(auth);
+    //console.log(user.displayName, user.email);
 
-    const { register, handleSubmit, reset } = useForm();
 
-    const onSubmit = (data, event) => {
-        console.log(data);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const name = event.target.username.value;
+        const email = event.target.email.value;
+        const phone = event.target.phone.value;
+        const education = event.target.education.value;
+        const location = event.target.location.value;
+        const linkedIn = event.target.linkedIn.value;
+
+        const updateProfile = { name, email, phone, education, location, linkedIn};
+        console.log(updateProfile);
         
-        fetch('http://localhost:5000/reviews', {
-            method: 'POST',
+        fetch(`http://localhost:5000/user/${email}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(updateProfile)
         })
         .then(res => res.json())
         .then(result => {
             toast.success('Profile updated');
-            reset();
         })
     }
 
     return (
-        <div>
+        <div className='pt-32 h-screen bg-gray-100'>
+            <div className='flex justify-center'>
+                <h2 className='w-[450px] py-4 text-white text-center text-3xl bg-slate-800'>My Profile</h2>
+            </div>
             <div className="w-full max-w-md mx-auto">
-            <h2 className='text-center text-2xl font-semibold bg-zinc-600 py-3 text-white'>My Profile</h2>
-            <form className='d-flex flex-column bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' onSubmit={handleSubmit(onSubmit)}>
-
-                <input className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Name' required {...register("name", { required: true, maxLength: 20 })} />
-
-                <input className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' type="email" placeholder='email' required {...register("email")} />
-
-                <input className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Phone' type="number" required {...register("phone")} />
-
-                <input className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Education' type="text" required {...register("education")} />
-
-                <input className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Location' type="text" required {...register("location")} />
-
-                <input className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Linked' type="number" required {...register("linkedIn")} />
-
-                <input className='bg-orange-800 w-full hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' type="submit" value="Update" />
-            </form>
-        </div>
+                <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <div className="mb-4">
+                        {/* <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Username
+                        </label> */}
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" value={user?.displayName ||"Username"} />
+                    </div>
+                    <div className="mb-4">
+                        {/* <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Email
+                        </label> */}
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" name="email" type="email" value={user?.email ||"email"}readOnly />
+                    </div>
+                    <div className="mb-4">
+                        {/* <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Phone
+                        </label> */}
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" name="phone" type="number" placeholder="+8801*********" />
+                    </div>
+                    <div className="mb-4">
+                        {/* <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Education
+                        </label> */}
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="education" name="education" type="text" placeholder="Education" />
+                    </div>
+                    <div className="mb-4">
+                        {/* <label className="block text-gray-700 text-sm font-bold mb-2">
+                            Location
+                        </label> */}
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="location" name="location" type="text" placeholder="Location" />
+                    </div>
+                    <div className="mb-4">
+                        {/* <label className="block text-gray-700 text-sm font-bold mb-2">
+                            LinkedIn
+                        </label> */}
+                        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="linkedIn" name="linkedIn" type="text" placeholder="LinkedIn" />
+                    </div>
+                    <div className="flex items-center justify-between">
+                        <button className="bg-orange-800 w-full hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                            <input className='w-full' type="submit" value="Update" />
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
