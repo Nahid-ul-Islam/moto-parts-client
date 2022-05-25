@@ -14,7 +14,7 @@ const Review = () => {
                 setReviews(data);
                 setSpinner(false);
             })
-    }, [reviews]);
+    }, []);
 
 
     return (
@@ -28,7 +28,7 @@ const Review = () => {
                     :
                     <div className='grid md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 w-9/12 mx-auto gap-24 mt-24'>
                         {
-                            reviews?.map(review => <ReviewContainer
+                            reviews?.slice(-4).map(review => <ReviewContainer
                                 key={review._id}
                                 rev={review}
                             ></ReviewContainer>)
