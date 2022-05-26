@@ -8,8 +8,8 @@ const AddReview = () => {
 
     const onSubmit = (data, event) => {
         //console.log(data);
-        
-        fetch('http://localhost:5000/reviews', {
+
+        fetch('https://cryptic-basin-15490.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -17,11 +17,11 @@ const AddReview = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(result => {
-            toast.success('Thank you for your review');
-            reset();
-        })
+            .then(res => res.json())
+            .then(result => {
+                toast.success('Thank you for your review');
+                reset();
+            })
     }
 
     return (
@@ -34,13 +34,13 @@ const AddReview = () => {
                 <textarea className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Review' required {...register("review")} />
 
                 <div className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'>
-                <label className='mr-4' htmlFor="rating">Rating :  </label>
-                <select htmlFor="rating" className='px-2' placeholder='Price' type="number" {...register("rating")}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
+                    <label className='mr-4' htmlFor="rating">Rating :  </label>
+                    <select htmlFor="rating" className='px-2' placeholder='Price' type="number" {...register("rating")}>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
                 </div>
 
                 <input className='mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' placeholder='Photo URL' type="text" required {...register("picture")} />

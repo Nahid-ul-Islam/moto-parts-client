@@ -12,7 +12,7 @@ const MyOrders = () => {
     const [myOrder, setMyOrder] = useState([]);
     const [spinner, setSpinner] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/my-order?email=${email}`, {
+        fetch(`https://cryptic-basin-15490.herokuapp.com/my-order?email=${email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -21,6 +21,7 @@ const MyOrders = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log('my-order array', data);
                 setMyOrder(data);
                 setSpinner(false);
             })

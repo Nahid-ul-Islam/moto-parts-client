@@ -8,7 +8,8 @@ const Parts = () => {
     if (isLoading) {
         return <Loading></Loading>;
     }
-    
+    console.log(parts);
+
 
     return (
         <div>

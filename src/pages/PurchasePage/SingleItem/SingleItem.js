@@ -14,7 +14,7 @@ const SingleItem = () => {
 
     const [user] = useAuthState(auth);
     // console.log(user);
-    const[flag, setFlag] = useState(false);
+    const [flag, setFlag] = useState(false);
 
     const { id } = useParams();
     const [item, setItem] = useState({});
@@ -22,9 +22,15 @@ const SingleItem = () => {
     const [spinner, setSpinner] = useState(true);
 
     useEffect(() => {
-        fetch(`https://cryptic-basin-15490.herokuapp.com/parts/${id}`)
+        fetch(`https://cryptic-basin-15490.herokuapp.com/parts/${id}`, {
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
+                console.log('from parchase page ', data);
                 setItem(data);
                 setSpinner(false);
             })
@@ -87,7 +93,7 @@ const SingleItem = () => {
 
         //sending order details to database
         const newOrder = { name, email, address, phone, totalPrice };
-        fetch('http://localhost:5000/order', {
+        fetch('https://cryptic-basin-15490.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -105,7 +111,7 @@ const SingleItem = () => {
         const newQuantity = availableQuantity - num;
         const updatedQuantity = { newQuantity };
         //console.log(updatedQuantity);
-        fetch(`http://localhost:5000/parts/${id}`, {
+        fetch(`https://cryptic-basin-15490.herokuapp.com/parts/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

@@ -12,7 +12,7 @@ const MyProfile = () => {
     const [updateProfile] = useUpdateProfile(auth);
     const [userDetails, setUserDetails] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/user/${user.email}`)
+        fetch(`https://cryptic-basin-15490.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => setUserDetails(data));
     }, []);
@@ -30,7 +30,7 @@ const MyProfile = () => {
         const updatedProfile = { name, email, phone, education, location, linkedIn };
         console.log(updatedProfile);
 
-        fetch(`http://localhost:5000/user/${email}`, {
+        fetch(`https://cryptic-basin-15490.herokuapp.com/user/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

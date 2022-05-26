@@ -7,18 +7,18 @@ const Users = () => {
     const [users, setUsers] = useState([]);
     const [flag, setFlag] = useState(false);
 
-    useEffect( () => {
-        fetch('http://localhost:5000/user', {
+    useEffect(() => {
+        fetch('https://cryptic-basin-15490.herokuapp.com/user', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
-        .then(res => res.json())
-        .then(data => {
-            setUsers(data);
-            setSpinner(false);
-        })
+            .then(res => res.json())
+            .then(data => {
+                setUsers(data);
+                setSpinner(false);
+            })
     }, [flag]);
 
     return (

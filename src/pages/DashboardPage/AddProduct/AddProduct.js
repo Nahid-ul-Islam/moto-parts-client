@@ -7,8 +7,8 @@ const AddProduct = () => {
 
     const onSubmit = (data) => {
         console.log(data);
-        
-        fetch('http://localhost:5000/parts', {
+
+        fetch('https://cryptic-basin-15490.herokuapp.com/parts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -16,11 +16,11 @@ const AddProduct = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(result => {
-            toast.success(data.name, 'has added');
-            reset();
-        })
+            .then(res => res.json())
+            .then(result => {
+                toast.success(data.name, 'has added');
+                reset();
+            })
     }
     return (
         <div className="w-full max-w-md mx-auto">

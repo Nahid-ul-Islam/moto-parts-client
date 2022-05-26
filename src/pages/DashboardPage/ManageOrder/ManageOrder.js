@@ -5,19 +5,19 @@ const ManageOrder = () => {
     const [spinner, setSpinner] = useState(true);
     const [orders, setOrders] = useState([]);
     const [flag, setFlag] = useState(false);
-    useEffect( () => {
-        fetch('http://localhost:5000/order',{
+    useEffect(() => {
+        fetch('https://cryptic-basin-15490.herokuapp.com/order', {
             method: 'GET',
-                headers: {
-                    'content-type': 'application/json',
-                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
-                }
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
-        .then(res => res.json())
-        .then(data => {
-            setOrders(data);
-            setSpinner(false);
-        })
+            .then(res => res.json())
+            .then(data => {
+                setOrders(data);
+                setSpinner(false);
+            })
     }, [flag]);
     return (
         <div>

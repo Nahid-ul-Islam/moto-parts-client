@@ -4,6 +4,7 @@ import ModalDelete from '../ModalDelete/ModalDelete';
 
 
 const MyTabularOrder = ({ item, setFlag }) => {
+    console.log('item', item);
 
     const { _id, name, totalPrice } = item;
     //console.log("Item ID:", _id);
