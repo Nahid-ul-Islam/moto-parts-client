@@ -7,7 +7,7 @@ const AddReview = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data, event) => {
-        console.log(data);
+        //console.log(data);
         
         fetch('http://localhost:5000/reviews', {
             method: 'POST',

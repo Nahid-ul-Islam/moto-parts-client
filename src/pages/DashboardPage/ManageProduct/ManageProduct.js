@@ -16,8 +16,8 @@ const ManageProduct = () => {
     return (
         <div>
             <div className='bg-slate-700'>
-                <h2 className='text-center text-4xl font-bold text-white pt-12 pb-5'>Orders</h2>
-                <h3 className='text-center text-2xl font-semibold text-white pt-5 pb-11'>Total Order : {products.length}</h3>
+                <h2 className='text-center text-4xl font-bold text-white pt-12 pb-5'>Products</h2>
+                <h3 className='text-center text-2xl font-semibold text-white pt-5 pb-11'>Total Items : {products.length}</h3>
                 <div className='bg-gray-100 pt-10'>
                     <div className='w-full md:w-3/4 2xl:w-1/2 mx-auto'>
                         <div className='flex bg-gray-200 flex-wrap'>
