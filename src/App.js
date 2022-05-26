@@ -11,6 +11,7 @@ import MyProfile from './pages/DashboardPage/MyProfile/MyProfile';
 import Users from './pages/DashboardPage/Users/Users';
 import Home from './pages/HomePage/Home/Home';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
+import NotFound from './pages/NotFoundPage/NotFound';
 import SingleItem from './pages/PurchasePage/SingleItem/SingleItem';
 import RequireAuth from './pages/SignInPage/RequireAuth/RequireAuth';
 import SignIn from './pages/SignInPage/SignIn/SignIn';
@@ -38,7 +39,7 @@ function App() {
         {/* nested routes start */}
         <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
 
-        <Route index element={<MyOrders/>}></Route>
+        <Route index element={<MyProfile/>}></Route>
         <Route path='my-profile' element={<MyProfile/>}></Route>
         <Route path='add-review' element={<AddReview/>}></Route>
         <Route path='my-orders' element={<MyOrders/>}></Route>
@@ -53,6 +54,8 @@ function App() {
 
         <Route path='/signup' element={<SignUp />}></Route>
         <Route path='/signin' element={<SignIn />}></Route>
+
+        <Route path='*' element={<NotFound></NotFound>}></Route>
 
       </Routes>
 

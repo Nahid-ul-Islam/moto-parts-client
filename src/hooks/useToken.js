@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const useToken = (user) => {
+    const [token, setToken] = useState('');
     useEffect( () => {
         const email = user?.user?.email;
         console.log('email', email);
@@ -15,11 +16,14 @@ const useToken = (user) => {
             })
             .then(res => res.json())
             .then(data => {
-                //alert('user added to database');
+                //console.log('data inside useToken', data);
+                const accessToken = data.token;
+                localStorage.setItem('accessToken', accessToken);
+                setToken(accessToken);
             })
         }
     }, [user])
-    return [];
+    return [token];
 };
 
 export default useToken;

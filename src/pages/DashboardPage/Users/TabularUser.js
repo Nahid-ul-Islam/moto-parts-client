@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 
@@ -16,13 +16,15 @@ const TabularUser = ({item, setFlag}) => {
         fetch(`http://localhost:5000/user/${queryEmail}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(role)
         })
             .then(res => res.json())
             .then(result => {
                 toast.success('Make Admin Done');
+                setFlag(preFlag => !preFlag);
             })
     }
 

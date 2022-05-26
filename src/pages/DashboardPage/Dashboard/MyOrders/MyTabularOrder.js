@@ -11,12 +11,14 @@ const MyTabularOrder = ({ item, setFlag }) => {
     const [id, setId] = useState(_id);
     //console.log("setId", id);
 
+    const page = 'tabulrOrderPage'
     return (
         <div>
             <div>
                 <ModalDelete
                     id={id}
                     setFlag={setFlag}
+                    page={page}
                 />
             </div>
             <div className="bg-gray-100">

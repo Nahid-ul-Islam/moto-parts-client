@@ -8,7 +8,12 @@ const Users = () => {
     const [flag, setFlag] = useState(false);
 
     useEffect( () => {
-        fetch('http://localhost:5000/user')
+        fetch('http://localhost:5000/user', {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
         .then(res => res.json())
         .then(data => {
             setUsers(data);

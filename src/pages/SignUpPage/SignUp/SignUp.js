@@ -6,6 +6,7 @@ import Loading from '../../../shared/Loading/Loading';
 import useToken from '../../../hooks/useToken';
 
 const SignUp = () => {
+    
 
     let errorElement;
     const navigate = useNavigate();
@@ -40,7 +41,7 @@ const SignUp = () => {
         errorElement = <p className='text-red-600'>Error: {error?.message}</p>
     }
 
-    if(user) {
+    if(token) {
         navigate('/home');
     }
 

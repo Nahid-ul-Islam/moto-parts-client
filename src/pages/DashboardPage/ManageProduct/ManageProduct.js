@@ -5,13 +5,19 @@ const ManageProduct = () => {
     const [spinner, setSpinner] = useState(true);
     const [products, setProducts] = useState([]);
     const [flag, setFlag] = useState(false);
-    useEffect( () => {
-        fetch('http://localhost:5000/parts')
-        .then(res => res.json())
-        .then(data => {
-            setProducts(data);
-            setSpinner(false);
+    useEffect(() => {
+        fetch('http://localhost:5000/parts', {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
         })
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+                setSpinner(false);
+            })
     }, [flag]);
     return (
         <div>

@@ -75,7 +75,7 @@ const SingleItem = () => {
         setNum(event.target.value);
     }
 
-    
+
     const handleOrder = event => {
         event.preventDefault();
         const name = productName;
@@ -86,23 +86,24 @@ const SingleItem = () => {
         //console.log(name, email, address, phone, totalPrice);
 
         //sending order details to database
-        const newOrder = {name, email, address, phone, totalPrice};
+        const newOrder = { name, email, address, phone, totalPrice };
         fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(newOrder)
         })
-        .then(res => res.json())
-        .then(data => {
-            toast.success('Orderd successfully');
-            event.target.reset();
-        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('Orderd successfully');
+                event.target.reset();
+            })
 
         //update the available quantity of the parts in the databse
         const newQuantity = availableQuantity - num;
-        const updatedQuantity = {newQuantity};
+        const updatedQuantity = { newQuantity };
         //console.log(updatedQuantity);
         fetch(`http://localhost:5000/parts/${id}`, {
             method: 'PUT',
@@ -111,10 +112,10 @@ const SingleItem = () => {
             },
             body: JSON.stringify(updatedQuantity),
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log('parts available Quantity has updated after the new order');
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('parts available Quantity has updated after the new order');
+            })
 
 
     }
@@ -156,7 +157,7 @@ const SingleItem = () => {
                                         canBuy === false ? <button disabled className='w-36 bg-orange-200 text-white p-3 font-medium tracking-wider rounded '>Order</button>
                                             :
                                             // <button className='w-36 bg-orange-600 text-white p-3 font-medium tracking-wider rounded hover:bg-orange-700'>Order</button>
-                                            <input type="submit" value='Order' className='w-36 bg-orange-600 text-white p-3 font-medium tracking-wider rounded hover:bg-orange-700'/>
+                                            <input type="submit" value='Order' className='w-36 bg-orange-600 text-white p-3 font-medium tracking-wider rounded hover:bg-orange-700' />
                                     }
                                 </form>
                             </div>
