@@ -14,7 +14,7 @@ const SingleItem = () => {
 
     const [user] = useAuthState(auth);
     // console.log(user);
-
+    const[flag, setFlag] = useState(false);
 
     const { id } = useParams();
     const [item, setItem] = useState({});
@@ -28,7 +28,7 @@ const SingleItem = () => {
                 setItem(data);
                 setSpinner(false);
             })
-    }, [id]);
+    }, [id, flag]);
     //item 
 
     const { name, image, description, price, minOrder, availableQuantity } = item;
@@ -108,13 +108,15 @@ const SingleItem = () => {
         fetch(`http://localhost:5000/parts/${id}`, {
             method: 'PUT',
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(updatedQuantity),
         })
             .then(res => res.json())
             .then(data => {
                 console.log('parts available Quantity has updated after the new order');
+                setFlag(preFlag => !preFlag);
             })
 
 
