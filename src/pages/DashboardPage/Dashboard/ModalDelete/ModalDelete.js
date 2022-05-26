@@ -1,18 +1,33 @@
 import React, { useState } from 'react';
 
-const ModalDelete = ({id, setFlag}) => {
+const ModalDelete = ({ id, setFlag, page }) => {
+
 
     const handleDelete = () => {
         console.log("inside function", id);
-        fetch(`http://localhost:5000/my-order/${id}`, {
-            method: 'DELETE',
-        })
-        .then(res => res.json())
-        .then(data => {
-            setFlag(preFlag => !preFlag);
-            console.log("deletion completed");
-        })
+        if (page === 'tabulrOrderPage') {
+            fetch(`http://localhost:5000/my-order/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setFlag(preFlag => !preFlag);
+                    console.log("deletion completed");
+                })
+        }
+        else if(page === 'tabularProductPage'){
+            fetch(`http://localhost:5000/parts/${id}`, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setFlag(preFlag => !preFlag);
+                    console.log("deletion completed");
+                })
+        }
     }
+
+
     return (
         <div>
             <input type="checkbox" id={id} class="modal-toggle" />

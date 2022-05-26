@@ -8,7 +8,7 @@ const MyTabularOrder = ({ item, setFlag }) => {
     const { _id, name, totalPrice } = item;
     //console.log("Item ID:", _id);
 
-     const [id, setId] = useState(_id);
+    const [id, setId] = useState(_id);
     //console.log("setId", id);
 
     return (
