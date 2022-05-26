@@ -29,14 +29,6 @@ const Parts = () => {
                                 )
                             }
                         </div>
-
-                        {/* <div className='text-center mb-16'>
-                    <Link to='/manage-item'>
-                        <button className='bg-rose-800 hover:bg-rose-600 text-white text-center md:text-xl px-5 font-bold py-4 rounded'>
-                            Manage Inventory
-                        </button>
-                    </Link>
-                </div> */}
                     </div>
             }
         </div>
