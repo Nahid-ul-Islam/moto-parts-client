@@ -3,8 +3,10 @@ import Loading from '../../../shared/Loading/Loading';
 import Part from './Part';
 
 const Parts = () => {
+
     const { data: parts, isLoading, refetch } = useQuery('parts', () => fetch('https://cryptic-basin-15490.herokuapp.com/parts').then(res => res.json()));
 
+    
     if (isLoading) {
         return <Loading></Loading>;
     }

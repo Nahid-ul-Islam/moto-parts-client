@@ -2,9 +2,14 @@ import React, { useState } from 'react';
 import ModalDelete from '../Dashboard/ModalDelete/ModalDelete';
 
 const TabularOrder = ({item, setFlag}) => {
+
     const { _id, name, totalPrice } = item;
     const [id, setId] = useState(_id);
+
+    
     const page = 'tabulrOrderPage';
+
+
     return (
         <div>
             <div>

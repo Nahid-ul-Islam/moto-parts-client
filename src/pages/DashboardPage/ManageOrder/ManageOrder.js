@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import TabularOrder from './TabularOrder';
 
 const ManageOrder = () => {
+
     const [spinner, setSpinner] = useState(true);
     const [orders, setOrders] = useState([]);
     const [flag, setFlag] = useState(false);
+
+
     useEffect(() => {
         fetch('https://cryptic-basin-15490.herokuapp.com/order', {
             method: 'GET',
@@ -19,6 +22,8 @@ const ManageOrder = () => {
                 setSpinner(false);
             })
     }, [flag]);
+
+    
     return (
         <div>
             <div className='bg-slate-700'>

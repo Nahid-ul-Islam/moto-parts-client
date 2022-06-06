@@ -32,7 +32,7 @@ const Blogs = () => {
 
                 <h2 className='font-semibold text-2xl mb-4'> What is a unit test? Why should we write unit tests?</h2>
                 <p className='mb-5'>
-                The primary goal of unit testing is to segregate written code in order to test and verify that it functions as intended. Unit testing is an important part of the development process because, when done correctly, it can help uncover early flaws in code that would be difficult to find in later phases of testing. TDD (test-driven development) is a practical methodology that takes a thorough approach to developing a product by testing and revising it continuously. Unit testing is the first level of software testing, and it takes precedence over other types of testing such as integration testing.
+                The primary goal of unit testing is to segregate written code in order to test and verify that it functions as intended. Unit testing is an important part of the development process because, when done correctly, it can help uncover early flaws in code that would be difficult to find in later phases of testing. TDD (test-driven development) is a practical methodology that takes a thorough approach to developing a product by testing and revising it continuously. Unit testing is the first level of software testing testing, and it takes precedence over other types of testing such as integration testing.
                 </p>
             </div>
             </div>

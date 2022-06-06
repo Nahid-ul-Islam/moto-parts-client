@@ -6,11 +6,10 @@ import auth from '../../../firebase.init';
 const MyProfile = () => {
 
     const [user] = useAuthState(auth);
-
-    //console.log(user.displayName, user.email);
-
     const [updateProfile] = useUpdateProfile(auth);
     const [userDetails, setUserDetails] = useState({});
+
+    
     useEffect(() => {
         fetch(`https://cryptic-basin-15490.herokuapp.com/user/${user.email}`)
             .then(res => res.json())
@@ -19,6 +18,7 @@ const MyProfile = () => {
 
 
     const handleSubmit = (event) => {
+
         event.preventDefault();
         const name = event.target.username.value;
         const email = event.target.email.value;
