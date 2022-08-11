@@ -42,7 +42,7 @@ const MyOrders = () => {
                     <div className='flex bg-gray-200 flex-wrap'>
                         <p className='p-2 w-1/4 text-sm md:text-base font-semibold tracking-wide text-center border-x-[1px] md:border-x-2 border-gray-50'>Product Name</p>
                         <p className='p-2 w-1/4 text-sm md:text-base font-semibold tracking-wide text-center border-x-[1px] md:border-x-2 border-gray-50'>Price</p>
-                        <p className='p-2 w-1/4 text-sm md:text-base font-semibold tracking-wide text-center border-x-[1px] md:border-x-2 border-gray-50'>Pay</p>
+                        <p className='p-2 w-1/4 text-sm md:text-base font-semibold tracking-wide text-center border-x-[1px] md:border-x-2 border-gray-50'>Payment</p>
                         <p className='p-2 w-1/4 text-sm md:text-base font-semibold tracking-wide text-center border-x-[1px] md:border-x-2 border-gray-50'>Remove</p>
                     </div>
                 </div>

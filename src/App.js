@@ -9,6 +9,7 @@ import MyOrders from './pages/DashboardPage/Dashboard/MyOrders/MyOrders';
 import ManageOrder from './pages/DashboardPage/ManageOrder/ManageOrder';
 import ManageProduct from './pages/DashboardPage/ManageProduct/ManageProduct';
 import MyProfile from './pages/DashboardPage/MyProfile/MyProfile';
+import Payment from './pages/DashboardPage/Payment/Payment';
 import Users from './pages/DashboardPage/Users/Users';
 import Home from './pages/HomePage/Home/Home';
 import MyPortfolio from './pages/MyPortfolioPage/MyPortfolio';
@@ -44,6 +45,7 @@ function App() {
         <Route path='my-profile' element={<MyProfile/>}></Route>
         <Route path='add-review' element={<AddReview/>}></Route>
         <Route path='my-orders' element={<MyOrders/>}></Route>
+        <Route path='payment/:_id' element={<Payment/>}></Route>
 
         <Route path='manage-order' element={<ManageOrder/>}></Route>
         <Route path='manage-product' element={<ManageProduct/>}></Route>

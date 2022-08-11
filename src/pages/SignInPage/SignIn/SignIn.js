@@ -91,11 +91,11 @@ const SignIn = () => {
                         </div>
                         <div className='flex justify-between mt-5'>
                             <button onClick={forgetPassword}
-                                className="inline-block align-baseline  text-blue-600 hover:text-blue-800" href="#">
+                                className="inline-block align-baseline font-semibold text-blue-600 hover:text-blue-800" href="#">
                                 Forgot Password?
                             </button>
                             <p>Don't have an account?</p>
-                            <Link to='/signup' className="inline-block align-baseline font-bold text-red-500 hover:text-red-700">
+                            <Link to='/signup' className="inline-block align-baseline font-semibold text-blue-600 hover:text-blue-700">
                                 Register?
                             </Link>
                         </div>

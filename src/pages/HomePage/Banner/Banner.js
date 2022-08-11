@@ -10,19 +10,19 @@ const Banner = () => {
         <div>
             <Carousel autoPlay infiniteLoop interval={4000} showThumbs={false}>
                 <div>
-                    <img className='w-full h-[230px] md:h-full object-cover' src={img2} />
+                    <img className='w-full h-[230px] md:h-full object-cover' src={img1} />
                 </div>
                 <div>
-                    <img className='w-full h-[230px] md:h-full object-cover' src={img1} />
+                    <img className='w-full h-[230px] md:h-full object-cover' src={img2} />
                 </div>
                 <div>
                     <img className='w-full h-[230px] md:h-full object-cover' src={img3} />
                 </div>
                 <div>
-                    <img className='w-full h-[230px] md:h-full object-cover' src={img2} />
+                    <img className='w-full h-[230px] md:h-full object-cover' src={img1} />
                 </div>
                 <div>
-                    <img className='w-full h-[230px] md:h-full object-cover' src={img1} />
+                    <img className='w-full h-[230px] md:h-full object-cover' src={img2} />
                 </div>
                 <div>
                     <img className='w-full h-[230px] md:h-full object-cover' src={img3} />

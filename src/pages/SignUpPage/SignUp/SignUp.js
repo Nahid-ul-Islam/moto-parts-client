@@ -76,7 +76,7 @@ const SignUp = () => {
                         </button>
                     </div>
                     <div className='text-center mt-5'>
-                        <Link to='/signin' className="inline-block align-baseline font-bold text-red-500 hover:text-red-700">
+                        <Link to='/signin' className="inline-block align-baseline font-semibold underline text-blue-500 hover:text-blue-700">
                             Already have an account
                         </Link>
                     </div>
