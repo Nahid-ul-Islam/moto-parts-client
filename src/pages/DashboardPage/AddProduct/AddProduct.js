@@ -8,7 +8,7 @@ const AddProduct = () => {
     const onSubmit = (data) => {
         console.log(data);
 
-        fetch('https://cryptic-basin-15490.herokuapp.com/parts', {
+        fetch('https://moto-parts.onrender.com/parts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

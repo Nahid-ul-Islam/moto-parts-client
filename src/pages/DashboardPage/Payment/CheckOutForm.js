@@ -15,7 +15,7 @@ const CheckOutForm = ({ order }) => {
     const { _id, totalPrice, name, email } = order;
 
     useEffect(() => {
-        fetch('https://cryptic-basin-15490.herokuapp.com/create-payment-intent', {
+        fetch('https://moto-parts.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CheckOutForm = ({ order }) => {
                 order: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://cryptic-basin-15490.herokuapp.com/order/${_id}`, {
+            fetch(`https://moto-parts.onrender.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

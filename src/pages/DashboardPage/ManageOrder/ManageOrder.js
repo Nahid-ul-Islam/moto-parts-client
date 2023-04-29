@@ -9,7 +9,7 @@ const ManageOrder = () => {
 
 
     useEffect(() => {
-        fetch('https://cryptic-basin-15490.herokuapp.com/order', {
+        fetch('https://moto-parts.onrender.com/order', {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
@@ -23,7 +23,7 @@ const ManageOrder = () => {
             })
     }, [flag]);
 
-    
+
     return (
         <div>
             <div className='bg-slate-700'>

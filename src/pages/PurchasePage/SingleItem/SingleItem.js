@@ -23,7 +23,7 @@ const SingleItem = () => {
 
 
     useEffect(() => {
-        fetch(`https://cryptic-basin-15490.herokuapp.com/parts/${id}`, {
+        fetch(`https://moto-parts.onrender.com/parts/${id}`, {
             headers: {
                 'content-type': 'application/json',
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -101,7 +101,7 @@ const SingleItem = () => {
 
             //sending order details to database
             const newOrder = { name, email, address, phone, totalPrice };
-            fetch('https://cryptic-basin-15490.herokuapp.com/order', {
+            fetch('https://moto-parts.onrender.com/order', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -119,7 +119,7 @@ const SingleItem = () => {
             const newQuantity = availableQuantity - num;
             const updatedQuantity = { newQuantity };
             //console.log(updatedQuantity);
-            fetch(`https://cryptic-basin-15490.herokuapp.com/parts/${id}`, {
+            fetch(`https://moto-parts.onrender.com/parts/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

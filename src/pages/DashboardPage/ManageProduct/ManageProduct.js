@@ -6,7 +6,7 @@ const ManageProduct = () => {
     const [products, setProducts] = useState([]);
     const [flag, setFlag] = useState(false);
     useEffect(() => {
-        fetch('https://cryptic-basin-15490.herokuapp.com/parts', {
+        fetch('https://moto-parts.onrender.com/parts', {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

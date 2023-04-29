@@ -9,7 +9,7 @@ const AddReview = () => {
     const onSubmit = (data, event) => {
         //console.log(data);
 
-        fetch('https://cryptic-basin-15490.herokuapp.com/reviews', {
+        fetch('https://moto-parts.onrender.com/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

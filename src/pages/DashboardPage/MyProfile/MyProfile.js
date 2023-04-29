@@ -9,9 +9,9 @@ const MyProfile = () => {
     const [updateProfile] = useUpdateProfile(auth);
     const [userDetails, setUserDetails] = useState({});
 
-    
+
     useEffect(() => {
-        fetch(`https://cryptic-basin-15490.herokuapp.com/user/${user.email}`)
+        fetch(`https://moto-parts.onrender.com/user/${user.email}`)
             .then(res => res.json())
             .then(data => setUserDetails(data));
     }, []);
@@ -30,7 +30,7 @@ const MyProfile = () => {
         const updatedProfile = { name, email, phone, education, location, linkedIn };
         console.log(updatedProfile);
 
-        fetch(`https://cryptic-basin-15490.herokuapp.com/user/${email}`, {
+        fetch(`https://moto-parts.onrender.com/user/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -8,7 +8,7 @@ const Users = () => {
     const [flag, setFlag] = useState(false);
 
     useEffect(() => {
-        fetch('https://cryptic-basin-15490.herokuapp.com/user', {
+        fetch('https://moto-parts.onrender.com/user', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

@@ -11,7 +11,7 @@ const stripePromise = loadStripe('pk_test_51L2JjNCT7D2GQE6a4EmqFoe3upMv4ZHVPvvIV
 
 const Payment = () => {
     const { _id } = useParams();
-    const url = `https://cryptic-basin-15490.herokuapp.com/order/${_id}`;
+    const url = `https://moto-parts.onrender.com/order/${_id}`;
 
     const { data: order, isLoading } = useQuery(['order', _id], () => fetch(url, {
         method: 'GET',

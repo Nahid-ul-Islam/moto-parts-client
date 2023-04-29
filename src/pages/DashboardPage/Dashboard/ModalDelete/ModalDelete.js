@@ -6,7 +6,7 @@ const ModalDelete = ({ id, setFlag, page }) => {
     const handleDelete = () => {
         console.log("inside function", id);
         if (page === 'tabulrOrderPage') {
-            fetch(`https://cryptic-basin-15490.herokuapp.com/my-order/${id}`, {
+            fetch(`https://moto-parts.onrender.com/my-order/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
@@ -16,7 +16,7 @@ const ModalDelete = ({ id, setFlag, page }) => {
                 })
         }
         else if (page === 'tabularProductPage') {
-            fetch(`https://cryptic-basin-15490.herokuapp.com/parts/${id}`, {
+            fetch(`https://moto-parts.onrender.com/parts/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

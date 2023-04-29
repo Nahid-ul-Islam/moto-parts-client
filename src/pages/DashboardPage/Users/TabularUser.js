@@ -13,7 +13,7 @@ const TabularUser = ({ item, setFlag }) => {
 
         const role = { role: 'admin' }
 
-        fetch(`https://cryptic-basin-15490.herokuapp.com/user/${queryEmail}`, {
+        fetch(`https://moto-parts.onrender.com/user/${queryEmail}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

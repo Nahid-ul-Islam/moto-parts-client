@@ -12,7 +12,7 @@ const MyOrders = () => {
     const [myOrder, setMyOrder] = useState([]);
     const [spinner, setSpinner] = useState(true);
     useEffect(() => {
-        fetch(`https://cryptic-basin-15490.herokuapp.com/my-order?email=${email}`, {
+        fetch(`https://moto-parts.onrender.com/my-order?email=${email}`, {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
